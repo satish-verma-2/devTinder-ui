@@ -20,8 +20,9 @@ const Body = () => {
     } catch (err) {
       if (err.response && err.response.status === 401) {
         navigate("/login");
+        return;
       }
-    throw new Error(err.message);
+      console.error("Unable to load the current user:", err);
     }
   };
 
